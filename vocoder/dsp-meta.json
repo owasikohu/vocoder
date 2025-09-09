@@ -1,0 +1,451 @@
+{
+    "name": "vocoder",
+    "filename": "vocoder.dsp",
+    "version": "2.79.3",
+    "compile_options": "-lang wasm-e -ct 1 -es 1 -mcd 16 -mdd 1024 -mdy 33 -single -ftz 2",
+    "library_list": [
+        "/usr/share/faust/stdfaust.lib",
+        "/usr/share/faust/vaeffects.lib",
+        "/usr/share/faust/oscillators.lib",
+        "/usr/share/faust/basics.lib",
+        "/usr/share/faust/signals.lib",
+        "/usr/share/faust/maths.lib",
+        "/usr/share/faust/platform.lib",
+        "/usr/share/faust/filters.lib",
+        "/usr/share/faust/noises.lib",
+        "/usr/share/faust/analyzers.lib"
+    ],
+    "include_pathnames": [
+        "/share/faust",
+        "/usr/local/share/faust",
+        "/usr/share/faust",
+        "."
+    ],
+    "size": 33412,
+    "code": "aPrKAZQ9Hw==",
+    "inputs": 1,
+    "outputs": 2,
+    "meta": [
+        {
+            "analyzers.lib/amp_follower_ar:author": "Jonatan Liljedahl, revised by Romain Michon"
+        },
+        {
+            "analyzers.lib/name": "Faust Analyzer Library"
+        },
+        {
+            "analyzers.lib/version": "1.2.0"
+        },
+        {
+            "basics.lib/name": "Faust Basic Element Library"
+        },
+        {
+            "basics.lib/version": "1.21.0"
+        },
+        {
+            "compile_options": "-lang wasm-e -ct 1 -es 1 -mcd 16 -mdd 1024 -mdy 33 -single -ftz 2"
+        },
+        {
+            "filename": "vocoder.dsp"
+        },
+        {
+            "filters.lib/fir:author": "Julius O. Smith III"
+        },
+        {
+            "filters.lib/fir:copyright": "Copyright (C) 2003-2019 by Julius O. Smith III <jos@ccrma.stanford.edu>"
+        },
+        {
+            "filters.lib/fir:license": "MIT-style STK-4.3 license"
+        },
+        {
+            "filters.lib/iir:author": "Julius O. Smith III"
+        },
+        {
+            "filters.lib/iir:copyright": "Copyright (C) 2003-2019 by Julius O. Smith III <jos@ccrma.stanford.edu>"
+        },
+        {
+            "filters.lib/iir:license": "MIT-style STK-4.3 license"
+        },
+        {
+            "filters.lib/lowpass0_highpass1": "Copyright (C) 2003-2019 by Julius O. Smith III <jos@ccrma.stanford.edu>"
+        },
+        {
+            "filters.lib/name": "Faust Filters Library"
+        },
+        {
+            "filters.lib/pole:author": "Julius O. Smith III"
+        },
+        {
+            "filters.lib/pole:copyright": "Copyright (C) 2003-2019 by Julius O. Smith III <jos@ccrma.stanford.edu>"
+        },
+        {
+            "filters.lib/pole:license": "MIT-style STK-4.3 license"
+        },
+        {
+            "filters.lib/resonbp:author": "Julius O. Smith III"
+        },
+        {
+            "filters.lib/resonbp:copyright": "Copyright (C) 2003-2019 by Julius O. Smith III <jos@ccrma.stanford.edu>"
+        },
+        {
+            "filters.lib/resonbp:license": "MIT-style STK-4.3 license"
+        },
+        {
+            "filters.lib/tf2:author": "Julius O. Smith III"
+        },
+        {
+            "filters.lib/tf2:copyright": "Copyright (C) 2003-2019 by Julius O. Smith III <jos@ccrma.stanford.edu>"
+        },
+        {
+            "filters.lib/tf2:license": "MIT-style STK-4.3 license"
+        },
+        {
+            "filters.lib/tf2s:author": "Julius O. Smith III"
+        },
+        {
+            "filters.lib/tf2s:copyright": "Copyright (C) 2003-2019 by Julius O. Smith III <jos@ccrma.stanford.edu>"
+        },
+        {
+            "filters.lib/tf2s:license": "MIT-style STK-4.3 license"
+        },
+        {
+            "filters.lib/version": "1.7.1"
+        },
+        {
+            "maths.lib/author": "GRAME"
+        },
+        {
+            "maths.lib/copyright": "GRAME"
+        },
+        {
+            "maths.lib/license": "LGPL with exception"
+        },
+        {
+            "maths.lib/name": "Faust Math Library"
+        },
+        {
+            "maths.lib/version": "2.8.1"
+        },
+        {
+            "name": "vocoder"
+        },
+        {
+            "noises.lib/name": "Faust Noise Generator Library"
+        },
+        {
+            "noises.lib/version": "1.4.1"
+        },
+        {
+            "options": "[midi:on][nvoices:12]"
+        },
+        {
+            "oscillators.lib/lf_sawpos:author": "Bart Brouns, revised by Stéphane Letz"
+        },
+        {
+            "oscillators.lib/lf_sawpos:licence": "STK-4.3"
+        },
+        {
+            "oscillators.lib/name": "Faust Oscillator Library"
+        },
+        {
+            "oscillators.lib/saw2ptr:author": "Julius O. Smith III"
+        },
+        {
+            "oscillators.lib/saw2ptr:license": "STK-4.3"
+        },
+        {
+            "oscillators.lib/sawN:author": "Julius O. Smith III"
+        },
+        {
+            "oscillators.lib/sawN:license": "STK-4.3"
+        },
+        {
+            "oscillators.lib/version": "1.6.0"
+        },
+        {
+            "platform.lib/name": "Generic Platform Library"
+        },
+        {
+            "platform.lib/version": "1.3.0"
+        },
+        {
+            "signals.lib/name": "Faust Signal Routing Library"
+        },
+        {
+            "signals.lib/onePoleSwitching:author": "Jonatan Liljedahl, revised by Dario Sanfilippo"
+        },
+        {
+            "signals.lib/onePoleSwitching:licence": "STK-4.3"
+        },
+        {
+            "signals.lib/version": "1.6.0"
+        },
+        {
+            "vaeffects.lib/name": "Faust Virtual Analog Filter Effect Library"
+        },
+        {
+            "vaeffects.lib/oneVocoderBand:author": "Romain Michon"
+        },
+        {
+            "vaeffects.lib/version": "1.3.0"
+        }
+    ],
+    "ui": [
+        {
+            "type": "vgroup",
+            "label": "vocoder",
+            "items": [
+                {
+                    "type": "vgroup",
+                    "label": "NOISE",
+                    "items": [
+                        {
+                            "type": "hslider",
+                            "label": "level",
+                            "varname": "fHslider12",
+                            "shortname": "NOISE_level",
+                            "address": "/vocoder/NOISE/level",
+                            "index": 32992,
+                            "init": 0,
+                            "min": 0,
+                            "max": 1,
+                            "step": 0.01
+                        }
+                    ]
+                },
+                {
+                    "type": "vgroup",
+                    "label": "OSC1",
+                    "items": [
+                        {
+                            "type": "hslider",
+                            "label": "detune",
+                            "varname": "fHslider6",
+                            "shortname": "OSC1_detune",
+                            "address": "/vocoder/OSC1/detune",
+                            "index": 96,
+                            "init": 0,
+                            "min": -50,
+                            "max": 50,
+                            "step": 1
+                        },
+                        {
+                            "type": "hslider",
+                            "label": "level",
+                            "varname": "fHslider4",
+                            "shortname": "OSC1_level",
+                            "address": "/vocoder/OSC1/level",
+                            "index": 80,
+                            "meta": [
+                                {
+                                    "group": "osc1"
+                                }
+                            ],
+                            "init": 1,
+                            "min": 0,
+                            "max": 1,
+                            "step": 0.01
+                        },
+                        {
+                            "type": "hslider",
+                            "label": "octave",
+                            "varname": "fHslider7",
+                            "shortname": "OSC1_octave",
+                            "address": "/vocoder/OSC1/octave",
+                            "index": 100,
+                            "init": 0,
+                            "min": -1,
+                            "max": 1,
+                            "step": 1
+                        },
+                        {
+                            "type": "checkbox",
+                            "label": "saw",
+                            "varname": "fCheckbox2",
+                            "shortname": "OSC1_saw",
+                            "address": "/vocoder/OSC1/saw",
+                            "index": 16540
+                        },
+                        {
+                            "type": "checkbox",
+                            "label": "squ",
+                            "varname": "fCheckbox0",
+                            "shortname": "OSC1_squ",
+                            "address": "/vocoder/OSC1/squ",
+                            "index": 88
+                        },
+                        {
+                            "type": "checkbox",
+                            "label": "tri",
+                            "varname": "fCheckbox1",
+                            "shortname": "OSC1_tri",
+                            "address": "/vocoder/OSC1/tri",
+                            "index": 16528
+                        }
+                    ]
+                },
+                {
+                    "type": "vgroup",
+                    "label": "OSC2",
+                    "items": [
+                        {
+                            "type": "hslider",
+                            "label": "detune",
+                            "varname": "fHslider10",
+                            "shortname": "OSC2_detune",
+                            "address": "/vocoder/OSC2/detune",
+                            "index": 16560,
+                            "init": 0,
+                            "min": -50,
+                            "max": 50,
+                            "step": 1
+                        },
+                        {
+                            "type": "hslider",
+                            "label": "level",
+                            "varname": "fHslider9",
+                            "shortname": "OSC2_level",
+                            "address": "/vocoder/OSC2/level",
+                            "index": 16552,
+                            "meta": [
+                                {
+                                    "group": "osc2"
+                                }
+                            ],
+                            "init": 1,
+                            "min": 0,
+                            "max": 1,
+                            "step": 0.01
+                        },
+                        {
+                            "type": "hslider",
+                            "label": "octave",
+                            "varname": "fHslider11",
+                            "shortname": "OSC2_octave",
+                            "address": "/vocoder/OSC2/octave",
+                            "index": 16564,
+                            "init": 0,
+                            "min": -1,
+                            "max": 1,
+                            "step": 1
+                        },
+                        {
+                            "type": "checkbox",
+                            "label": "saw",
+                            "varname": "fCheckbox5",
+                            "shortname": "OSC2_saw",
+                            "address": "/vocoder/OSC2/saw",
+                            "index": 32980
+                        },
+                        {
+                            "type": "checkbox",
+                            "label": "squ",
+                            "varname": "fCheckbox3",
+                            "shortname": "OSC2_squ",
+                            "address": "/vocoder/OSC2/squ",
+                            "index": 16556
+                        },
+                        {
+                            "type": "checkbox",
+                            "label": "tri",
+                            "varname": "fCheckbox4",
+                            "shortname": "OSC2_tri",
+                            "address": "/vocoder/OSC2/tri",
+                            "index": 32968
+                        }
+                    ]
+                },
+                {
+                    "type": "vgroup",
+                    "label": "VOCODER",
+                    "items": [
+                        {
+                            "type": "hslider",
+                            "label": "attack",
+                            "varname": "fHslider3",
+                            "shortname": "attack",
+                            "address": "/vocoder/VOCODER/attack",
+                            "index": 56,
+                            "init": 0,
+                            "min": 0,
+                            "max": 10,
+                            "step": 0.01
+                        },
+                        {
+                            "type": "hslider",
+                            "label": "bandwidth",
+                            "varname": "fHslider1",
+                            "shortname": "bandwidth",
+                            "address": "/vocoder/VOCODER/bandwidth",
+                            "index": 20,
+                            "init": 1,
+                            "min": 0.1,
+                            "max": 2,
+                            "step": 0.01
+                        },
+                        {
+                            "type": "hslider",
+                            "label": "release",
+                            "varname": "fHslider2",
+                            "shortname": "release",
+                            "address": "/vocoder/VOCODER/release",
+                            "index": 48,
+                            "init": 0,
+                            "min": 0,
+                            "max": 10,
+                            "step": 0.01
+                        }
+                    ]
+                },
+                {
+                    "type": "hslider",
+                    "label": "bend",
+                    "varname": "fHslider8",
+                    "shortname": "bend",
+                    "address": "/vocoder/bend",
+                    "index": 104,
+                    "meta": [
+                        {
+                            "midi": "pitchwheel"
+                        }
+                    ],
+                    "init": 0,
+                    "min": -2,
+                    "max": 2,
+                    "step": 0.01
+                },
+                {
+                    "type": "hslider",
+                    "label": "freq",
+                    "varname": "fHslider5",
+                    "shortname": "freq",
+                    "address": "/vocoder/freq",
+                    "index": 92,
+                    "init": 300,
+                    "min": 50,
+                    "max": 2000,
+                    "step": 0.01
+                },
+                {
+                    "type": "hslider",
+                    "label": "gain",
+                    "varname": "fHslider0",
+                    "shortname": "gain",
+                    "address": "/vocoder/gain",
+                    "index": 0,
+                    "init": 1,
+                    "min": 0,
+                    "max": 10,
+                    "step": 0.01
+                },
+                {
+                    "type": "button",
+                    "label": "gate",
+                    "varname": "fButton0",
+                    "shortname": "gate",
+                    "address": "/vocoder/gate",
+                    "index": 68
+                }
+            ]
+        }
+    ]
+}
