@@ -4,7 +4,7 @@ import("stdfaust.lib");
 
 f = hslider("freq",300,50,2000,0.01);
 bend = ba.semi2ratio(hslider("bend[midi:pitchwheel]",0,-2,2,0.01)) : si.polySmooth(gate,0.999,1);
-gain = hslider("gain",0.5,0,1,0.01);
+gain = hslider("gain",1,0,10,0.01);
 gate = button("gate");
 freq = f*bend;
 
@@ -45,11 +45,11 @@ noise = no.noise*noise_level;
  
 modulator = _;
 
-carrier = (osc1+osc2+noise)*gate*gain;
+carrier = (osc1+osc2+noise)*gate;
 
 vocoder_group(x) = vgroup("VOCODER",x);
 
 vocoder_attack = vocoder_group(hslider("attack", 0, 0, 10, 0.01));
 vocoder_release = vocoder_group(hslider("release", 0, 0, 10, 0.01));
-
-process = ve.vocoder(16, vocoder_attack, vocoder_release, 1, modulator, carrier) <: _,_;
+vocoder_bw = vocoder_group(hslider("bandwidth", 1, 0.1, 2, 0.01));
+process = ve.vocoder(10, vocoder_attack, vocoder_release, vocoder_bw, modulator, carrier)*gain <: _,_;
