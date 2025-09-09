@@ -5,6 +5,7 @@ import("stdfaust.lib");
 f = hslider("freq",300,50,2000,0.01);
 bend = ba.semi2ratio(hslider("bend[midi:pitchwheel]",0,-2,2,0.01)) : si.polySmooth(gate,0.999,1);
 gain = hslider("gain",1,0,10,0.01);
+mic = hslider("mic",1,0,10,0.01); 
 gate = button("gate");
 freq = f*bend;
 
@@ -43,7 +44,7 @@ noise_level = noise_group(hslider("level", 0, 0, 1, 0.01));
 
 noise = no.noise*noise_level;
  
-modulator = _;
+modulator = _*mic;
 
 carrier = (osc1+osc2+noise)*gate;
 
