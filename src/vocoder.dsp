@@ -1,13 +1,16 @@
-declare options "[midi:on][nvoices:12]";
+declare options "[midi:on][nvoices:8]";
 import("stdfaust.lib");
 
 
 f = hslider("freq",300,50,2000,0.01);
-bend = ba.semi2ratio(hslider("bend[midi:pitchwheel]",0,-2,2,0.01)) : si.polySmooth(gate,0.999,1);
-gain = hslider("gain",1,0,10,0.01);
-mic = hslider("mic",1,0,10,0.01); 
-gate = button("gate");
+bend = ba.semi2ratio(hslider("bend[midi:pitchwheel]",0,-2,2,0.01)); 
 freq = f*bend;
+
+gain = hslider("gain",1,0,1,0.01);
+gate = button("gate");
+
+mic = hslider("mic",1,0,10,0.01);
+vol = hslider("vol",1,0,10,0.01);
 
 osc1_group(x) = vgroup("OSC1",x);
 
@@ -46,11 +49,11 @@ noise = no.noise*noise_level;
  
 modulator = _*mic;
 
-carrier = (osc1+osc2+noise)*gate;
+carrier = (osc1+osc2+noise)*gain*gate;
 
 vocoder_group(x) = vgroup("VOCODER",x);
 
-vocoder_attack = vocoder_group(hslider("attack", 0, 0, 10, 0.01));
-vocoder_release = vocoder_group(hslider("release", 0, 0, 10, 0.01));
+vocoder_attack = vocoder_group(hslider("attack", 0, 0, 0.1, 0.001));
+vocoder_release = vocoder_group(hslider("release", 0, 0, 0.1, 0.001));
 vocoder_bw = vocoder_group(hslider("bandwidth", 1, 0.1, 2, 0.01));
-process = ve.vocoder(10, vocoder_attack, vocoder_release, vocoder_bw, modulator, carrier)*gain <: _,_;
+process = ve.vocoder(10, vocoder_attack, vocoder_release, vocoder_bw, modulator, carrier)*vol <: _,_;
