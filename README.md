@@ -114,3 +114,5 @@ This project is MIT (see [LICENSE](LICENSE)). Vendored third-party code:
 signalsmith-clap-cpp (Boost Software License 1.0); `third_party/faust` are Faust
 architecture headers (used to build Faust-generated code). clap, clap-wrapper,
 webview-gui and choc are fetched at build time under their own licenses.
+
+
